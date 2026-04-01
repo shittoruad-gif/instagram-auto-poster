@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 
 interface Settings {
@@ -13,6 +13,14 @@ interface Settings {
 }
 
 export default function SettingsPage() {
+  return (
+    <Suspense fallback={<div className="p-8">読み込み中...</div>}>
+      <SettingsContent />
+    </Suspense>
+  );
+}
+
+function SettingsContent() {
   const searchParams = useSearchParams();
   const [settings, setSettings] = useState<Settings>({
     igAccessToken: "",
