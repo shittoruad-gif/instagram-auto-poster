@@ -1,0 +1,32 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Post {
+  id          String   @id @default(cuid())
+  imageUrl    String
+  caption     String
+  hashtags    String   @default("")
+  type        String   @default("FEED") // FEED or STORY
+  status      String   @default("DRAFT") // DRAFT, SCHEDULED, PUBLISHED, FAILED
+  publishedAt DateTime?
+  scheduledAt DateTime?
+  igMediaId   String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Settings {
+  id                  String @id @default("default")
+  igAccessToken       String @default("")
+  igUserId            String @default("")
+  igBusinessAccountId String @default("")
+  openaiApiKey        String @default("")
+  fbAppId             String @default("")
+  fbAppSecret         String @default("")
+}

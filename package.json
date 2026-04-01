@@ -4,20 +4,32 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "prisma generate && next build",
+    "db:push": "prisma db push",
+    "db:deploy": "prisma db push",
     "start": "next start",
     "lint": "eslint"
   },
   "dependencies": {
+    "@prisma/client": "^7.5.0",
+    "clsx": "^2.1.1",
+    "date-fns": "^4.1.0",
+    "lucide-react": "^1.7.0",
     "next": "16.2.1",
+    "node-cron": "^4.2.1",
+    "openai": "^6.33.0",
+    "prisma": "^7.5.0",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "tailwind-merge": "^3.5.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
+    "@types/node-cron": "^3.0.11",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "dotenv": "^17.3.1",
     "eslint": "^9",
     "eslint-config-next": "16.2.1",
     "tailwindcss": "^4",
