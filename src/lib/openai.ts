@@ -33,7 +33,7 @@ export async function generateImage(
     ...(model === "dall-e-3" ? { quality: "hd" } : {}),
   });
 
-  const imageUrl = response.data[0]?.url;
+  const imageUrl = response.data?.[0]?.url;
   if (!imageUrl) {
     throw new Error("Failed to generate image");
   }
