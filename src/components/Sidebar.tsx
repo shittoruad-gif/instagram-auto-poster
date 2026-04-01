@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
+import AuthHeader from "@/components/AuthHeader";
 
 const navItems = [
   { href: "/", label: "ダッシュボード", icon: "📊" },
@@ -42,10 +43,13 @@ export default function Sidebar() {
         ))}
       </nav>
 
-      <div className="p-4 border-t border-gray-200">
-        <div className="px-4 py-3 bg-gradient-to-r from-purple-50 to-pink-50 rounded-lg">
-          <p className="text-xs text-gray-500">Powered by</p>
-          <p className="text-sm font-semibold text-gray-700">Instagram Graph API</p>
+      <div className="border-t border-gray-200">
+        <AuthHeader />
+        <div className="p-4">
+          <div className="px-4 py-3 bg-gradient-to-r from-purple-50 to-pink-50 rounded-lg">
+            <p className="text-xs text-gray-500">Powered by</p>
+            <p className="text-sm font-semibold text-gray-700">Instagram Graph API</p>
+          </div>
         </div>
       </div>
     </aside>
